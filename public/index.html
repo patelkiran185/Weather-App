@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#000000" />
+	<meta name="description" content="Web site created using create-react-app" />
+	<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+	<link rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+	<title>Weather App</title>
+	
+
+</head>
+
+<body>
+	<noscript>You need to enable JavaScript to run this app.</noscript>
+
+
+
+
+
+</div>
+
+
+
+
+	<div class='header'>
+		<p class="bouncing-text">Navigate Weather & Explore </p>
+	</div>
+	
+	<div id="root"></div>
+  <div id="dayNightImages">
+    <div id="sun">
+      <img src="sun_image.png" alt="Sun Image" id="dayNightImage">
+    </div>
+    <div id="moon">
+      <img src="moon_image.png" alt="Moon Image" id="dayNightImage">
+    </div>
+  </div>
+
+	<div id="cursor"></div>
+
+	
+
+
+
+
+
+
+	<div class="container-left">
+		<div class="clock">
+			<div class="clock-numbers">
+				<label style="--i: 1"><span>.</span></label>
+				<label style="--i: 2"><span>.</span></label>
+				<label style="--i: 3"><span>3</span></label>
+				<label style="--i: 4"><span>.</span></label>
+				<label style="--i: 5"><span>.</span></label>
+				<label style="--i: 6"><span>6</span></label>
+				<label style="--i: 7"><span>.</span></label>
+				<label style="--i: 8"><span>.</span></label>
+				<label style="--i: 9"><span>9</span></label>
+				<label style="--i: 10"><span>.</span></label>
+				<label style="--i: 11"><span>.</span></label>
+				<label style="--i: 12"><span>12</span></label>
+			</div>
+			<div class="indicators">
+				<span class="indicator seconds"></span>
+				<span class="indicator minutes"></span>
+				<span class="indicator hours"></span>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+
+
+
+
+
+
+
+		const offset = 30;
+
+		function updateClock() {
+			const now = new Date();
+			const seconds = now.getSeconds();
+			const minutes = now.getMinutes();
+			const hours = now.getHours();
+
+			const secondHand = document.querySelector('.indicator.seconds');
+			const minuteHand = document.querySelector('.indicator.minutes');
+			const hourHand = document.querySelector('.indicator.hours');
+
+			const secondRotation = 6 * seconds; // 360 degrees / 60 seconds
+			const minuteRotation = 6 * minutes + 0.1 * seconds; // 360 degrees / 60 minutes
+			const hourRotation = 30 * hours + 0.5 * minutes; // 360 degrees / 12 hours
+
+			
+			secondHand.style.transform = `rotate(${secondRotation}deg)`;
+			minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+			hourHand.style.transform = `rotate(${hourRotation}deg)`;
+
+			requestAnimationFrame(updateClock);
+		}
+
+		updateClock();
+
+		
+
+
+
+		function updateCursor(event) {
+			const cursor = document.getElementById('cursor');
+			cursor.style.left = `${event.clientX + offset}px`;
+			cursor.style.top = `${event.clientY + offset}px`;
+
+			requestAnimationFrame(() => updateCursor(event));
+		}
+
+		document.addEventListener('mousemove', updateCursor);
+
+
+
+		const dayNightImage = document.getElementById('dayNightImage');
+    const sun = document.getElementById('sun');
+    const moon = document.getElementById('moon');
+
+    function updateDayNightImage() {
+      const now = new Date();
+      const hours = now.getHours();
+
+      if (hours >= 6 && hours < 18) {
+        //  sun during the day
+        sun.style.display = 'block';
+        moon.style.display = 'none';
+      } else {
+        //  moon during the night
+        sun.style.display = 'none';
+        moon.style.display = 'block';
+      }
+
+      requestAnimationFrame(updateDayNightImage);
+    }
+
+ 
+    updateDayNightImage();
+
+
+	
+
+	
+	</script>
+</body>
+
+</html>

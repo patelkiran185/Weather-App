@@ -1,0 +1,221 @@
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    width: 80rem;
+    /* max-width: 100%; */
+    min-height: 80vh;
+    margin: 20rem auto ;
+    /* margin-top: 7.5rem */
+    border-radius: 1.2rem;
+    /* background-image: linear-gradient(180deg, #130754 0%, #3b2f80 100%); */
+    background-color: rgba(61, 60, 67, 0.7);
+    background-size: cover;
+    position: relative;
+}
+
+.container::before {
+    display: block;
+    height: 10rem;
+}
+
+
+.top-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    padding-top: 6rem;
+}
+
+.top-bar input {
+    width: 100%;
+    max-width: 36.2rem;
+    height: 7.8rem;
+    background: #ebfffc;
+    border: none;
+    outline: none;
+    border-radius: 4rem;
+    padding-left: 4rem;
+    color: #626262;
+    font-size: 2rem;
+    font-weight: 400;
+   
+}
+
+
+.search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.8rem;
+    height: 7.8rem;
+    /* background: transparent; */
+    border-radius: 4rem;
+    cursor: pointer;
+    position:relative;
+    
+}
+
+
+
+.search-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 90%;
+    z-index: 2; 
+}
+
+.neon-light {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 4rem;
+    background: linear-gradient(45deg,#000,rgb(84, 33, 150),rgb(8, 8, 222)); /* Neon light gradient colors */
+    background-size: 200% 200%;
+    animation: neon-animation 1.5s linear infinite;
+}
+
+@keyframes neon-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+
+
+
+.weather-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 2.9rem;
+    display: flex;
+    justify-content: center;
+}
+
+.weather-temp {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 12rem;
+    font-weight: 400;
+}
+
+.weather-location {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 6rem;
+    font-weight: 400;
+}
+
+.data-container {
+    margin-top: 3rem;
+    color: white;
+    display:grid; 
+    grid-template-columns: repeat(auto-fit,minmax(min(50px,100%),1fr));
+    gap:1rem;
+    padding: 15px;
+    
+   
+}
+
+.element {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 1.7rem;
+    width:100%;
+    
+}
+
+.element .icon {
+    width: 4rem;
+    height: 4rem;
+
+}
+
+.data {
+    display: flex;
+    gap: 0.2rem;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 150;
+}
+
+.text {
+    font-size: 2rem;
+    font-weight: 450;
+
+}
+
+@media (max-width: 773px) {
+    html {
+        font-size: 55%;
+    }
+
+    .container {
+        margin-top: 60rem;
+        margin-left: -50%;
+        width: 200%;
+        height: auto;
+    }
+
+    .clock {
+        top: 10%; 
+        transform: translateX(-50%); 
+       left: 50%;
+       right: initial;
+       width: 100px; 
+        height: 100px;
+        
+      
+        
+
+    }
+
+    .data-container {
+        margin-bottom: 10rem; 
+       
+        flex-direction: column; 
+        align-items: center;
+        overflow:auto;
+    }
+
+    .element {
+        width: 100%;
+        margin-bottom: 2rem; 
+        max-width: 400px;
+        
+        
+    }
+}
+
+@media (max-width: 700px) {
+    html {
+        font-size: 45%;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .clock {
+        top: 5%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        right: initial;
+        width: 100px; 
+        height: 100px;
+        
+    }
+
+    .data-container {
+        margin-top: 15rem; 
+}}
