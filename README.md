@@ -12,3 +12,12 @@ clone this repo
 change the directory
 Next step is "npm install"
 npm start
+
+
+
+ReactJs
+
+
+I have use Thunder Client extension in Visual Studio Code for Sending Request using API key.
+I have generated API key using openweather website.
+you need to sign in and click the API key bar for your key.
